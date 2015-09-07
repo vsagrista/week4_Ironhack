@@ -1,0 +1,13 @@
+<html>
+	<head>
+		<title>projects</title>
+	</head>
+	<body>
+		<h1>PROJECTS</h1>
+		<% @projects.each do |item| %>
+		<ul>
+			<li><%= "#{item.title}, updated at: #{item.updated_at}" %></li>
+		</ul>
+		<% end %>
+	</body>
+</html>
