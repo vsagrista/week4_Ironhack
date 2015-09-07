@@ -4,6 +4,15 @@
 </head>
 <body>
 	<h1> Hello from Rails</h1>
-
+	<% @contacts.each do |contact| %>
+	<ul>
+		<li> Contact Number: <%= contact.id %></li>
+		<li> Contact Name: <%= contact.name.upcase %></li>
+		<li> Contact Address: <%= contact.address %></li>
+		<li> Contact Email: <%= contact.email %></li>
+		<li> Contact Phone: <%= contact.phone %></li>
+		<li> ------------------------------------ </li>
+	</ul>
+	<% end %>
 </body>
 </html>
