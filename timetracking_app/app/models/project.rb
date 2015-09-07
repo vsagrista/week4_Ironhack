@@ -4,9 +4,19 @@ class Project < ActiveRecord::Base
 		where(id: value).first
 	end
 
-	def self.find_last_3_hours
+	def self.find_last_1_hours
 		date = Date.current
-		last_3_h = date - 3.hours 
-		where('created_at > ?', last_3_h)
+		last_1_h = date - 1.hours 
+		old_projects = where('created_at > ?', last_1_h)
+		old_projects.each do |item|
+			puts item.id
+			end 
 	end
+	def self.show_all
+		all.each do |item|
+			puts item.id
+		end
+	end
+
+
 end
