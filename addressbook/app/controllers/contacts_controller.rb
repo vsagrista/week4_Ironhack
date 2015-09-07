@@ -6,4 +6,11 @@ class ContactsController < ApplicationController
 		id = params[:id]
 		@current_user = Contact.find(id)
   end  
+  def new
+  	name = params[:name]
+  	address = params[:address]
+  	email = params[:email]
+  	phone = params[:phone]
+  	Contact.add_contact(name,address,email,phone)
+  end
 end
