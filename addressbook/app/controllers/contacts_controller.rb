@@ -33,4 +33,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     render :favorites
   end
+
+  def find_contacts
+    @contacts = Contact.all
+    @letter = params[:character]
+    render :find_contact
+  end
 end

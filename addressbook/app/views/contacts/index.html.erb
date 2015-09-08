@@ -5,6 +5,11 @@
 <body>
 	<h1> Hello from Rails: Contact List</h1>
 	<a href="http://localhost:3000/contacts/new">Add new contact</a>
+	<form action="/contacts/find_contact" method="post" enctype="multipart/form-data">
+	<label>Search contact by first letter:</label><br>
+	<input type='text' name="character">
+	</form>
+
 	<% @contacts.each do |contact| %>
 	<ul>
 		<li> Contact Number: <%= contact.id %></li>
@@ -15,6 +20,5 @@
 		<li> ------------------------------------ </li>
 	</ul>
 	<% end %>
-
 </body>
 </html>

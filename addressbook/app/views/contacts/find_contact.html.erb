@@ -1,0 +1,10 @@
+<h1> Contacts starting with the letter: <%= @letter.upcase %>
+</h1>
+<% @contacts.each do |contact| %>
+	<% if contact.name[0].include? @letter.upcase %>
+		<ul>
+			<li><%= contact.name %></li>
+		</ul>
+	<% end %>
+<%end%>
+<a href="http://localhost:3000/">Back to home page.</a>
