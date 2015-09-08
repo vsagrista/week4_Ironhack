@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
 
   def show
     id = params[:id]
-    @current_user = Contact.find(id)
+    @contact = Contact.find(id)
   end
 
   def new
@@ -25,4 +25,12 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name,:address,:email,:phone)
   end
 
+  def favorite
+    id = params[:id]
+    @contact = Contact.find(id)
+    @contact.state = true
+    @contact.save
+    @contacts = Contact.all
+    render :favorites
+  end
 end

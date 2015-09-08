@@ -1,8 +1,11 @@
 <html>
-<head>
-	<title>Current User</title>
-</head>
-<body>
-	<h1>Current User is: <%= @current_user.name %>
-</body>
+	<head>
+		<title>Current User</title>
+	</head>
+	<body>
+		<h1>Current User is: <%= @contact.name %></h1>
+		<%= form_for @contact do |f| %>
+		<%= f.submit "Favorite!" %>
+		<% end %>
+	</body>
 </html>

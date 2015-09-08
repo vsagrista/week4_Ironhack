@@ -1,4 +1,6 @@
-
+<% if @contact.errors.messages.present? %>
+	<p><%= @contact.errors.messages %></p>
+<%end%>
 
 <%= form_for @contact do |f| %>
 	<%= f.label :name %>
