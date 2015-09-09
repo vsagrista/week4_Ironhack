@@ -4,9 +4,9 @@
 	</head>
 	<body>
 		<h1>PROJECTS</h1>
-		<% @projects.each do |item| %>
+		<% @projects.each do |project| %>
 		<ul>
-			<li><%= "#{item.title}, updated at: #{item.updated_at}" %></li>
+			<li><%= link_to(project.title, project_path(project.id))%> updated at: <%=project.updated_at%></li>
 		</ul>
 		<% end %>
 	</body>
