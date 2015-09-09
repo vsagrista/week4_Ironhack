@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+	
+	has_many :entries
 
 	def self.ironFind(value)
 		where(id: value).first

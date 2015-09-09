@@ -7,10 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Project.destroy_all
-
-25.times do |i|
+Entry.destroy_all
+5.times do |i|
 	p = Project.new
 	p.title = Faker::Address.country
 	p.description = Faker::Company.buzzword
 	p.save
+	p.entries.create(minutes: rand(1..60), hours: rand(1..23), comments: "A new entry", date: Date.current)	
 end

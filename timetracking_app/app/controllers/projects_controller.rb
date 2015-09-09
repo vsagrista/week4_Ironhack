@@ -5,5 +5,7 @@ class ProjectsController < ApplicationController
 	def show
 		id = params[:id]
 		@project = Project.find(id)
+		@entries = @project.entries
 	end
+
 end
