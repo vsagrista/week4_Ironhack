@@ -1,0 +1,13 @@
+<h1>Edit Entries</h1>
+<%= form_for @entry do |f| %>
+	<%= f.label :Date %>
+	<%= f.date_field :date %>
+	<%= f.label :Hours %>
+	<%= f.number_field :hours %>
+	<%= f.label :Minutes %>
+	<%= f.number_field :minutes %>
+	<%= f.label :Comments %>
+	<%= f.text_area :comments %>
+	<%= f.submit "Edit Modified Entries" %>
+<% end %>
+

@@ -21,10 +21,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  def contact_params
-    params.require(:contact).permit(:name,:address,:email,:phone)
-  end
-
   def favorite
     id = params[:id]
     @contact = Contact.find(id)
@@ -38,5 +34,10 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     @letter = params[:character]
     render :find_contact
+  end
+
+  private
+  def contact_params
+    params.require(:contact).permit(:name,:address,:email,:phone)
   end
 end

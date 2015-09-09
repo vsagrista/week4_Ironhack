@@ -1,6 +1,7 @@
 <h1>COUNTRIES</h1>
 <h2>Country name: <%= @project.title %></h2>
 <p>Description: <%= @project.description %> </p>
+<%= link_to "Edit Project", edit_project_path(@project) %>
 <p>Entries for project </p>
 <% @entries.each do |entry| %>
 <ul>
@@ -9,6 +10,7 @@
 	<li>Project date: <%= entry.date %></li>
 	<li>Project hours: <%= entry.hours %></li>
 	<li>Project minutes: <%= entry.minutes%></li>
+	<%= link_to "Edit Entry", edit_entry_path(entry) %>
 </ul>
 <% end %>
 <%= link_to "Go Back Home", projects_path %> 
