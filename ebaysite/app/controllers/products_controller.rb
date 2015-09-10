@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title,:description,:deadline,:amount)
+    params.require(:product).permit(:title,:description,:deadline,:amount,:min_bid)
   end
 
   def destroy

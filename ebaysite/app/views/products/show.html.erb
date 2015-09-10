@@ -1,6 +1,8 @@
 <h1>Current Product: <%= @product.title %></h1>
-
+<p> Minimunt bet for this product: $<%= @product.min_bid %></p>
 <%= form_for [@product, @bid] do |f| %>
+	
+
 	<%= f.label :amount %>
 	<%= f.number_field :amount %>
 	<%= f.label :email %>
