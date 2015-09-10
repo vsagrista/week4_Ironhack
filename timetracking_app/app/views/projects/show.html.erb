@@ -1,3 +1,5 @@
+<%= flash_helper %>
+
 <h1>COUNTRIES</h1>
 <h2>Country name: <%= @project.title %></h2>
 <p>Description: <%= @project.description %> </p>
@@ -5,13 +7,14 @@
 <p>Entries for project </p>
 <% @entries.each do |entry| %>
 <ul>
-	<li>Project id: <%= entry.project_id %></li>
+	<li>Project id: <%= entry.project_id %> </li>
 	<li>Project comments: <%= entry.comments %></li>
 	<li>Project date: <%= entry.date %></li>
 	<li>Project hours: <%= entry.hours %></li>
 	<li>Project minutes: <%= entry.minutes%></li>
 	<%= link_to "Edit Entry", edit_entry_path(entry) %>
+	<%= link_to('Delete', entry_path(entry), method: :delete, confirm: 'Are you sure?') %>
 </ul>
 <% end %>
-<%= link_to "Go Back Home", projects_path %> 
-<%= link_to "Create New Project", new_project_entry_path(@project) %>
+<%= link_to "Go Back Home", projects_path %>
+<%= link_to "Create New Entry", new_project_entry_path(@project) %>

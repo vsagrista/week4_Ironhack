@@ -7,7 +7,10 @@
 		<% @projects.each do |project| %>
 		<ul>
 			<li><%= link_to(project.title, project_path(project.id))%> updated at: <%=project.updated_at%></li>
+			
 		</ul>
+
 		<% end %>
+		<%= link_to "Create Project", new_project_path %>
 	</body>
 </html>
