@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  resources :products, :users
+  resources :users
+  resources :products do
+  	resources :bids
+  end
 end

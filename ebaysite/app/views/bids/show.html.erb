@@ -1,0 +1,13 @@
+<h1>Bids on product: <%= @product.title %></h1>
+<% if @winner_amount.nil? %>
+<% @product.bids.each do |item| %>
+		<ul>
+			<li>User:<%= show_user_name(item.user_id)%></li>
+			<li>Bid Amount:<%=item.amount%></li>
+		</ul>
+	<% end %>
+<% else %>
+	<p> Deadline reached!!</p>
+	<p>Winner: <%= @winner_user%> </p>
+	<p>Amount: <%= @winner_amount%></p>
+<%end%>
