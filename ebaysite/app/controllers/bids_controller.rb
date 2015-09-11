@@ -10,6 +10,7 @@ class BidsController < ApplicationController
     @bid = Bid.create(amount: amount, user_id: user[0].id, product_id: params[:product_id].to_i )
     @product = Product.find(@bid.product_id)
     if @bid.errors.blank? == false
+      @errors = @bid.errors.messages
       render  :error
     else
       if Time.now >= @product.deadline

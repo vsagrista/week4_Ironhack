@@ -20,23 +20,19 @@ class Bid < ActiveRecord::Base
 
   def is_first_bid?
     if amount.to_i < @min_bid
-      errors.add(:field, "Too small!")
-      @error = "Number is too small!"
-
+      errors.add(:field, "Your bid is less than the minimum prince.")
     end
   end
 
   def reached_deadline?(product)
     if Time.now >= product.deadline
       errors.add(:field, "Deadline not yet.")
-
     end
   end
 
   def is_bigger_bid?(min_bid,winner_amount)
     if amount.to_i < min_bid || amount.to_i < winner_amount || amount.to_i == winner_amount
-      errors.add(:field, "too small ")
-
+      errors.add(:field, "Your bid must be larger than the current highest bid.")
     end
   end
 end
