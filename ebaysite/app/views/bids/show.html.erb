@@ -1,7 +1,8 @@
 <h1>Bids on product: <%= @product.title %></h1>
-<h2> Current top bid by <%= @top_user %>, bid: $<%= @top_bid %> </h2>
+<h2> Current top bid by <%= @top_user %>, bid: $<%= @winner_bid.amount %> </h2>
 <% if @winner_amount.nil? %>
-	<% @product.bids.each do |item| %>
+	<% bids = @product.bids.order("amount DESC") %>
+	<% bids.each do |item| %>
 		<ul>
 			<li>User: <%= show_user_name(item.user_id)%></li>
 			<li>Bid: $<%=item.amount%></li>
