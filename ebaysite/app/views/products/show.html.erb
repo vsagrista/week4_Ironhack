@@ -7,10 +7,9 @@
 	<%= f.text_field :user %>
 	<%= f.submit "Bid for Product" %>
 <% end %>
-<h1>Bids on this product (You must bet more than current highest bet)</h1>
-<% @sorted_bids.each do |bid| %>
-<ul>
-<li>Amount: <%=bid.amount %></li>
+<h1>Current highest bid: $<%= @sorted_bids.first.amount %> by <%= User.find(@sorted_bids.first.user_id).name %> <br> (Remeber to bet more money!)</h1>
 
-</ul>
-<% end %>
+<br>
+<%= link_to "See all bids for this product", product_bids_path(@product) %>
+<br>
+<%= link_to "See other products", products_path %>

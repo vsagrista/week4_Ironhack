@@ -6,7 +6,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @bid = Bid.new
     @sorted_bids = @product.bids.order("amount DESC")
-   
   end
 
   def new

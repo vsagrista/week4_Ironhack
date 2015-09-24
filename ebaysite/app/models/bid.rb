@@ -2,10 +2,10 @@ class Bid < ActiveRecord::Base
   belongs_to :product
   belongs_to :user
   validate :has_errors?
-  
+
   def has_errors?
     @product = Product.find(self.product_id)
-    @min_bid= @product.min_bid
+    @min_bid = @product.min_bid
     if @product.bids.all.length == 0
       more_than_min_bid?
     else

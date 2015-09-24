@@ -8,6 +8,7 @@ class BidsController < ApplicationController
   end
 
   def create
+    #binding.pry
     user = User.where(email: params[:bid][:user])
     amount = params[:bid][:amount]
 
@@ -20,11 +21,11 @@ class BidsController < ApplicationController
       if Time.now >= @product.deadline
         @winner_amount = amount
         @winner_user = user[0].name
-        render :show
+        render :index
       else
         @winner_bid = @product.bids.order("amount DESC").first
         @top_user = @winner_bid.user.name
-        render :show
+        render :index
       end
     end
   end

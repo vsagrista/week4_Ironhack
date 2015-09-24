@@ -1,8 +1,9 @@
 <%= link_to "Add product", new_product_path %>
 <h1>Producs: <% @products.each do |product| %> </h1>
-<ul>
-	<h2>Product Name: <%=product.title%></h2>
-	<li>Product Description: <%=product.description%></li>
-	<li>Bid Deadline:<%=product.deadline%></li>
-</ul>
+	<ul>
+		<h2>Product Name: <%=product.title%></h2>
+		<li>Product Description: <%=product.description%></li>
+		<li>Bid Deadline:<%=product.deadline%></li>
+		<%= link_to "Bid for this product!!!", product_path(product.id) %>
+	</ul>
 <%end%>
