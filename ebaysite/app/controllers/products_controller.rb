@@ -12,12 +12,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-     #binding.pry
     @product = Product.new(product_params)
-    if @product.save
+    if @product.save && @product.find_if_email_belongs_to_a_user(params[:product][:user_id])
       redirect_to products_path
     else
-      render :new
+      render :error
     end
   end
 

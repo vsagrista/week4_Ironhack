@@ -6,12 +6,15 @@ class Product < ActiveRecord::Base
 	validates :description, length: { maximum: 2000 }
 	validates :title, length: { maximum: 100 }
 	validates :description, uniqueness: true
+	
 
-	def find_user_from_email(email)
-		if User.where(email: email)
-			true	
+	def find_if_email_belongs_to_a_user(email)
+		if  User.exists?(:email => email)
+			true
+		else 
+			self.errors.add(:base, "This email doesn't belong to a user")
+			false
 		end
 	end
-
 end
 

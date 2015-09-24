@@ -1,0 +1,13 @@
+<h1> There were some errors </h1>
+<% @product.errors.messages.each do |key, value| %>
+	<% if key == :title%>
+		<% key = :name %>
+	<%end%>
+	<% if key == :user_id %>
+		<% key = :email %>
+	<%end%>
+	<p> <%= key %>: <%= value[0] %></p>
+<% end %>
+<%= link_to "Try to add product again", new_product_path %> 
+<%= link_to "All Products", products_path %>
+
