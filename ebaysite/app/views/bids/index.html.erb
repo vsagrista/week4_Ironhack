@@ -1,0 +1,22 @@
+
+<% if @product.bids.length == 0 %>
+<p>There are no bids at the moment for <%= @product.title %> </p>
+<% else %>
+<h1>Bids on product: <%= @product.title %></h1>
+<h2> Current top bid by <%= @top_user %>, bid: $<%= @winner_bid.amount %> </h2>
+<% if @winner_amount.nil? %>
+	<% bids = @product.bids.order("amount DESC") %>
+	<% bids.each do |item| %>
+		<ul>
+			<li>User: <%= show_user_name(item.user_id)%></li>
+			<li>Bid: $<%=item.amount%></li>
+		</ul>
+	<% end %>
+<% else %>
+	<p> Deadline reached!!</p>
+	<p>Winner: <%= @winner_user%> </p>
+	<p>Bid: $<%= @winner_amount%></p>
+<%end%>
+<% end %>
+<br>
+<%= link_to "Back", :back %>

@@ -7,3 +7,10 @@
 	<%= f.text_field :user %>
 	<%= f.submit "Bid for Product" %>
 <% end %>
+<h1>Bids on this product (You must bet more than current highest bet)</h1>
+<% @sorted_bids.each do |bid| %>
+<ul>
+<li>Amount: <%=bid.amount %></li>
+
+</ul>
+<% end %>

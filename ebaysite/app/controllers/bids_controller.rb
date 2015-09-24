@@ -1,4 +1,8 @@
 class BidsController < ApplicationController
+  def index
+    @product = Product.where(id: params[:product_id])[0]
+    #binding.pry
+  end
   def new
     @bid = Bid.new
   end
