@@ -13,5 +13,6 @@ User.destroy_all
 	user = User.new
 	user.name = Faker::Name.name
 	user.email = Faker::Internet.email
+	user.password = "12345678"
 	user.save
 end

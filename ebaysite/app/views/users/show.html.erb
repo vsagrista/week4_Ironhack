@@ -1,0 +1,12 @@
+<p>User: <%= @user.name %></p>
+<p>Products: <%= @user.products.length %></p>
+<% if @user.products %>
+	<%@user.products.each do |product| %>
+	<ul>
+		<li>Name: <%= product.name %></li>
+	</ul>
+	<% end %>
+<% end %>
+<p>User bids: <%= @user.bids.length %></p>
+<br>
+<%= link_to "Back", :back %>

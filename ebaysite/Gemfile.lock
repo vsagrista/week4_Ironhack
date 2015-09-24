@@ -123,6 +123,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  pry
   pry-rails
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)

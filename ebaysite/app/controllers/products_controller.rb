@@ -3,18 +3,16 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
   def show
-    id = params[:id]
-    @product = Product.find(id)
+    @product = Product.find(params[:id])
     @bid = Bid.new
   end
 
   def new
-    @products = Product.new
-    @user = User.new
-    @bid = Bid.new
+    @product = Product.new
   end
 
   def create
+     #binding.pry
     @product = Product.new(product_params)
     if @product.save
       redirect_to products_path
@@ -24,7 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title,:description,:deadline,:amount,:min_bid)
+    params.require(:product).permit(:title,:description,:deadline,:user_id,:amount,:min_bid)
   end
 
   def destroy

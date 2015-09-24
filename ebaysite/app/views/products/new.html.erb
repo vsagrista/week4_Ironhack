@@ -1,14 +1,27 @@
 <h1>Add a new product</h1>
 
-<%= form_for @products do |f| %>
+<% if @product.errors %> 
+	<% @product.errors.messages.each do |key, value| %>
+	<p> <%= key %>: <%= value[0] %></p>
+	<% end %>
+<% end %>
+
+
+<%= form_for @product do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :title %>
 	<%= f.label :description %>
 	<%= f.text_field :description %>
+	<%= f.label "User email" %>
+	<%= f.email_field :user_id %>
 	<%= f.label :Min_bid %>
 	<%= f.number_field :min_bid %>
 	<%= f.label :deadline %>
 	<%= f.date_field :deadline %>
 
+
 	<%= f.submit "Add Product" %>
 <% end %>
+<br>
+<%= link_to "Add product", new_product_path %> 
+<%= link_to "Products", products_path %>

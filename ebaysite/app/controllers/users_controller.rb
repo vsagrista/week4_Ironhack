@@ -3,9 +3,8 @@ class UsersController < ApplicationController
 		@users = User.all 
 	end
 
-
 	def show
-		@products = "user products"
+		@user = User.find(params[:id])
 	end
 
 	def new
@@ -16,13 +15,13 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
       redirect_to users_path
-    else
-      render :new
-    end
-
+	    else
+	      render :new
+	    end
 	end
+
 	def user_params
-		params.require(:user).permit(:name,:email)
+		params.require(:user).permit(:name,:email, :password)
 	end
 
 	def destroy
