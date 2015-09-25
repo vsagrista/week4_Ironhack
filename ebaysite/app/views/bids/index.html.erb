@@ -2,13 +2,18 @@
 <% if @product.bids.length == 0 %>
 	<p>There are no bids at the moment for <%= @product.title %> </p>
 <% else %>
-	<h1>Current bids for product: <%= @product.title %></h1>
-	<% bids = @product.bids.order("amount DESC")%>
-	<h2>Current winner: <%= bids.first.amount %>$</h2>
-	<% bids.each do |bid| %>
-		<ul>
-			<li>User: <%= User.find(bid.user_id).name %>, Bid: $<%= bid.amount %></li>
-		</ul>
+    <% bids = @product.bids.order("amount DESC")%>
+    <% if @product.deadline <= Time.now %>
+      <h1>Deadline reached! <%= User.find(bids.first.user_id).name %> won with $<%= bids.first.amount %> bid!</h1>
+    <% else %>
+		<h1>Current bids for product: <%= @product.title %></h1>
+		<h1>Bids Dealine: <%= @product.deadline %></h1>
+		<h2>Current winner at: <%= bids.first.amount %>$</h2>
+		<% bids.each do |bid| %>
+			<ul>
+				<li>User: <%= User.find(bid.user_id).name %>, Bid: $<%= bid.amount %></li>
+			</ul>
+		<% end %>
 	<% end %>
 <% end %>
 <br>

@@ -1,8 +1,13 @@
 <% if current_user.nil? %> 
 	<% redirect_to  new_user_session_path %>
 <% end %>
-<h2><%= current_user.name %>!</h2>
+<h2>Welcome <%= current_user.name %>!</h2>
+<h2>You have: <%= current_user.bids.length %> bids </h2>
 
 <p>
 <strong>Email:</strong> <%= current_user.email %>
 </p>
+<%= link_to "See all products and start bidding", products_path %>
+<br>
+<%= link_to "Edit my account", edit_user_registration_path %>
+
