@@ -1,0 +1,16 @@
+<h1>Edit product</h1>
+<%= form_for @product do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :title %>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<%= f.label :Min_bid %>
+	<%= f.number_field :min_bid %>
+	<%= f.label :deadline %>
+	<%= f.date_field :deadline %>
+
+
+	<%= f.submit "Save changes" %>
+<% end %>
+<br>
+<%= link_to "Back to Products Home", products_path %>

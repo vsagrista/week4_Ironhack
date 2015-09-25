@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   include ApplicationHelper
   before_action :logged_in_user
-  
+
   def index
     @products = Product.all
     @user = current_user
@@ -27,8 +27,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit 
+    @product = Product.find(params[:id])
+   
+  end
+
+   def update 
+     Product.find(params[:id]).update(product_params) 
+    redirect_to products_path
+   end
+
   def product_params
-    params.require(:product).permit(:title,:description,:deadline,:amount,:min_bid, :user_id)
+    params.require(:product).permit(:title,:description,:deadline,:min_bid, :user_id)
   end
 
   def destroy
