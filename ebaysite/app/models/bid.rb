@@ -4,6 +4,7 @@ class Bid < ActiveRecord::Base
   validate :has_errors?
 
   def has_errors?
+    binding.pry
     @product = Product.find(self.product_id)
     @min_bid = @product.min_bid
     if @product.bids.all.length == 0

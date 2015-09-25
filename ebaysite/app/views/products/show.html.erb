@@ -1,5 +1,5 @@
 <h1>Current Product: <%= @product.title %></h1>
-<p> Minimunt bet for this product: $<%= @product.min_bid %></p>
+<p> Minimunt bid for this product: $<%= @product.min_bid %></p>
 <%= form_for [@product, @bid] do |f| %>
 	<%= f.label :amount %>
 	<%= f.number_field :amount %>
@@ -7,7 +7,12 @@
 	<%= f.text_field :user %>
 	<%= f.submit "Bid for Product" %>
 <% end %>
-<h1>Current highest bid: $<%= @sorted_bids.first.amount %> by <%= User.find(@sorted_bids.first.user_id).name %> <br> (Remeber to bet more money!)</h1>
+
+<% if @sorted_bids.nil? %>
+  <h1>Current highest bid: $<%= @sorted_bids.first.amount %> by <%= User.find(@sorted_bids.first.user_id).name %> <br> (Remeber to bet more money!)</h1>
+<% else %>
+  <h1>There are no bids for this product yet</h1>
+<% end %>
 
 <br>
 <%= link_to "See all bids for this product", product_bids_path(@product) %>

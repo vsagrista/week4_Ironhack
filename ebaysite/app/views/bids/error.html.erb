@@ -1,4 +1,8 @@
 <h1> Something went wrong! </h1>
-<% @errors.each do |attr,msg| %>
-	<p>Error:<%= msg %> </p>
+<% if @errors.nil? %> 
+	<p> Not a valid email</p>
+<% else %>
+	<% @errors.each do |attr,msg| %>
+		<p>Error:<%= msg %> </p>
+	<% end %>
 <% end %>
