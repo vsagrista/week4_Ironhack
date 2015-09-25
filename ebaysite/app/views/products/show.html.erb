@@ -8,7 +8,7 @@
 	<%= f.submit "Bid for Product" %>
 <% end %>
 
-<% unless @sorted_bids.nil? %>
+<% if @sorted_bids.length > 0 %>
   <h1>Current highest bid: $<%= @sorted_bids.first.amount %> by <%= User.find(@sorted_bids.first.user_id).name %> <br> (Remeber to bet more money!)</h1>
 <% else %>
   <h1>There are no bids for this product yet</h1>
