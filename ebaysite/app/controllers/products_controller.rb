@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
   include ApplicationHelper
   before_action :logged_in_user
+  
   def index
     @products = Product.all
+    @user = current_user
   end
+
   def show
     @product = Product.find(params[:id])
     @bid = Bid.new
@@ -16,6 +19,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.user_id = current_user.id
     if @product.save
       redirect_to products_path
     else
@@ -24,7 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title,:description,:deadline,:amount,:min_bid)
+    params.require(:product).permit(:title,:description,:deadline,:amount,:min_bid, :user_id)
   end
 
   def destroy

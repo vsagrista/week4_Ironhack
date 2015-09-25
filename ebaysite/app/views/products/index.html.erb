@@ -1,9 +1,24 @@
 <%= link_to "Add product", new_product_path %>
-<h1>Producs: <% @products.each do |product| %> </h1>
-	<ul>
-		<h2>Product Name: <%=product.title%></h2>
-		<li>Product Description: <%=product.description%></li>
-		<li>Bid Deadline:<%=product.deadline%></li>
-		<%= link_to "Bid for this product!!!", product_path(product.id) %>
-	</ul>
+<h1>Producs to bid on: <% @products.each do |product| %> </h1>
+	<% if product.user_id != @user.id %>
+		<ul>
+			<h2>Product Name: <%=product.title%></h2>
+			<li>Product Description: <%=product.description%></li>
+			<li>Bid Deadline:<%=product.deadline%></li>
+
+			<%= link_to "Bid for this product!!!", product_path(product.id) %>
+		</ul>
+	<% end %>
 <%end%>
+<h1>My products:</h1>
+	<% @user.products.each do |product| %> </h1>
+	<% if product.id != @user.id %>
+		<ul>
+			<h2>Product Name: <%=product.title%></h2>
+			<li>Product Description: <%=product.description%></li>
+			<%= link_to "Edit product", edit_product_path(product) %>
+		</ul>
+	<% end %>
+<% end %>
+
+
