@@ -3,12 +3,12 @@
 <%= form_for [@product, @bid] do |f| %>
 	<%= f.label :amount %>
 	<%= f.number_field :amount %>
-	<%= f.label :email %>
+	<%= f.label "Please, reenter your email" %>
 	<%= f.text_field :user %>
 	<%= f.submit "Bid for Product" %>
 <% end %>
 
-<% if @sorted_bids.nil? %>
+<% unless @sorted_bids.nil? %>
   <h1>Current highest bid: $<%= @sorted_bids.first.amount %> by <%= User.find(@sorted_bids.first.user_id).name %> <br> (Remeber to bet more money!)</h1>
 <% else %>
   <h1>There are no bids for this product yet</h1>

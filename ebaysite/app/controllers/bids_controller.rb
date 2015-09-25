@@ -8,10 +8,10 @@ class BidsController < ApplicationController
   end
 
   def create
-    user = User.where(email: params[:bid][:user])
+    user = User.where(email: params[:bid][:user])[0]
     amount = params[:bid][:amount]
-    if user.nil?
-      @bid = Bid.create(amount: amount, user_id: user[0].id, product_id: params[:product_id].to_i )
+    unless user.nil? && user != current_user
+      @bid = Bid.create(amount: amount, user_id: user.id, product_id: params[:product_id].to_i )
       @product = Product.find(@bid.product_id)
       if @bid.errors.blank? == false
         @errors = @bid.errors.messages

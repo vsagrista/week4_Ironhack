@@ -1,30 +1,8 @@
 class UsersController < ApplicationController
-	
-	def index
-		@users = User.all 
-	end
-
-	def show
-		@user = User.find(params[:id])
-	end
-
-	def new
-		@users = User.new
-	end
-
-	def create
-		@user = User.new(user_params)
-		if @user.save
-      redirect_to users_path
-	    else
-	      render :new
-	    end
-	end
-
-	def user_params
-		params.require(:user).permit(:name,:email, :password)
-	end
-
-	def destroy
-	end
+  before_action :authenticate_user!
+  
+  def profile
+    @user = current_user
+    render 'users/profile'
+  end
 end

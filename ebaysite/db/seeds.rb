@@ -9,10 +9,8 @@ Bid.destroy_all
 Product.destroy_all
 User.destroy_all
 
-10.times do |i|
-	user = User.new
-	user.name = Faker::Name.name
-	user.email = Faker::Internet.email
-	user.password = "12345678"
-	user.save
-end
+paul, alia, leto = User.create([
+  {name: 'Paul Atreides',  email: 'paul@arrakis.com', password: 'ironhack', password_confirmation: 'ironhack'},
+  {name: 'Alia Atreides',  email: 'alia@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'},
+  {name: 'Leto Atreides', email: 'leto@arrakis.com',  password: 'ironhack', password_confirmation: 'ironhack'}
+])
