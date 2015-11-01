@@ -21,20 +21,15 @@ class ContactsController < ApplicationController
   end
 
   def make_favorite
-
+    Contact.make_favorite(params[:id])
+    redirect_to root_path
   end
 
-  def favorites
-    @contact.state = true
-    @contact.save
-    @contacts = Contact.all
-    render :favorites
-  end
+
 
   def find_contacts
-    @contacts = Contact.all
-    @letter = params[:character]
-    render :find_contact
+    @contacts = Contact.find_contact(params[:character])
+    render :found_contacts
   end
 
   private

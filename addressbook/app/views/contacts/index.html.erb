@@ -4,22 +4,33 @@
 </head>
 <body>
 	<h1> Hello from Rails: Contact List</h1>
-	<%= link_to "Add Contact", contacts_new_path %>
+	<%= link_to "Add Contact", new_contact_path %>
 	<%= link_to "Favorites", contacts_favorites_path %>
 
 	<form action="/contacts/find_contact" method="post" enctype="multipart/form-data">
-	<label>Search contact by first letter:</label><br>
-	<input type='text' name="character">
+		<label>Search contact by first letter:</label><br>
+		<input type='text' name="character">
 	</form>
 
 	<% @contacts.each do |contact| %>
 	<ul>
-		<li> Contact Number: <%= contact.id %></li>
 		<li> Contact Name: <%= contact.name %></li>
 		<li> Contact Address: <%= contact.address %></li>
 		<li> Contact Email: <%= contact.email %></li>
 		<li> Contact Phone: <%= contact.phone %></li>
-		<li> ------------------------------------ </li>
+		<% if contact.state %> 
+			<li>FAVORITE :)</li>
+			<form action="/contacts/unfavor " method="post" >
+			<input type="hidden" name="id" value=<%= contact.id %>>
+			<button type="submit">Unfavor</button>
+		</form>
+
+		<% else %>
+			<form action="/contacts/make_favorite " method="post" >
+				<input type="hidden" name="id" value=<%= contact.id %>>
+				<button type="submit">Favorite!</button>
+			</form>
+		<% end %>
 	</ul>
 	<% end %>
 

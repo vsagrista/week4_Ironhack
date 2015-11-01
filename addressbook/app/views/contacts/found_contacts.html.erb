@@ -1,0 +1,7 @@
+<h1> Contacts found </h1>
+<% @contacts.each do |contact| %>
+	<ul>
+		<li><%= contact.name %></li>
+	</ul>
+<%end%>
+<%= link_to "Home", root_path %>

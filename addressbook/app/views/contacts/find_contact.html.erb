@@ -1,8 +1,0 @@
-<h1> Contacts starting with the letter: <%= @letter.upcase %>
-</h1>
-<% @favorites.each do |contact| %>
-	<ul>
-		<li><%= contact.name %></li>
-	</ul>
-<%end%>
-<%= link_to "Home", root_path %>
