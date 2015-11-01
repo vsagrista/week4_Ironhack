@@ -4,7 +4,7 @@
 	</head>
 	<body>
 		<h1> You are a in our list of favorite contacts! </h1>
-		<a href="http://localhost:3000/">Back to home page.</a>
+		<%= link_to "Home", root_path %><br>
 		<% @contacts.each do |contact| %>
 		<ul>
 			<% if contact.state == true %>
@@ -14,7 +14,7 @@
 			<li> Contact Email: <%= contact.email %></li>
 			<li> Contact Phone: <%= contact.phone %></li>
 			<li> ------------------------------------ </li>
-			<%end%>
+			<% end %>
 		</ul>
 		<% end %>
 	</body>

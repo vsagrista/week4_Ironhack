@@ -1,7 +1,6 @@
 <% if @contact.errors.messages.present? %>
 	<p><%= @contact.errors.messages %></p>
 <%end%>
-
 <%= form_for @contact do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
@@ -13,5 +12,7 @@
 	<%= f.text_field :phone %>
 	<%= f.submit "Save Contact" %>
 <% end %>
+
+<%= link_to "Home", root_path %>
 
 

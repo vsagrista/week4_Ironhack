@@ -4,7 +4,9 @@
 </head>
 <body>
 	<h1> Hello from Rails: Contact List</h1>
-	<a href="http://localhost:3000/contacts/new">Add new contact</a>
+	<%= link_to "Add Contact", contacts_new_path %>
+	<%= link_to "Favorites", contacts_favorites_path %>
+
 	<form action="/contacts/find_contact" method="post" enctype="multipart/form-data">
 	<label>Search contact by first letter:</label><br>
 	<input type='text' name="character">
@@ -20,5 +22,6 @@
 		<li> ------------------------------------ </li>
 	</ul>
 	<% end %>
+
 </body>
 </html>
