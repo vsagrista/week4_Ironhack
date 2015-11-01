@@ -4,8 +4,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    @contact = Contact.find(id)
+    @contact = Contact.find(params[:id])
   end
 
   def new
@@ -21,9 +20,11 @@ class ContactsController < ApplicationController
     end
   end
 
-  def favorite
-    id = params[:id]
-    @contact = Contact.find(id)
+  def make_favorite
+
+  end
+
+  def favorites
     @contact.state = true
     @contact.save
     @contacts = Contact.all
