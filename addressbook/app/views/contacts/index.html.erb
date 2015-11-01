@@ -1,10 +1,10 @@
 <h1> Hello from Rails: Contact List</h1>
 <%= link_to "Add Contact", new_contact_path %>
-<%= link_to "Favorites", contacts_favorites_path %>
+<%= link_to "Favorites", contacts_show_favorites_path %>
 
 <form action="/contacts/find_contact" method="post" enctype="multipart/form-data">
 	<label>Search contact by first letter:</label><br>
-	<input type='text' name="character">
+	<input type='text' name="letter">
 </form>
 
 <% @contacts.each do |contact| %>

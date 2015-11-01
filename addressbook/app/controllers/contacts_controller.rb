@@ -20,6 +20,11 @@ class ContactsController < ApplicationController
     end
   end
 
+  def show_favorites
+    @contacts = Contact.get_favorites
+    render :favorites
+  end
+
   def make_favorite
     Contact.make_favorite(params[:id])
     redirect_to root_path
@@ -32,7 +37,7 @@ class ContactsController < ApplicationController
 
 
   def find_contacts
-    @contacts = Contact.find_contact(params[:character])
+    @contacts = Contact.find_contact_from_first_letter(params[:character])
     render :found_contacts
   end
 

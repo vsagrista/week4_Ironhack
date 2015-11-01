@@ -1,21 +1,15 @@
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-		<h1> You are a in our list of favorite contacts! </h1>
-		<%= link_to "Home", root_path %><br>
-		<% @contacts.each do |contact| %>
-		<ul>
-			<% if contact.state == true %>
-			<li> Contact Number: <%= contact.id %></li>
-			<li> Contact Name: <%= contact.name %></li>
-			<li> Contact Address: <%= contact.address %></li>
-			<li> Contact Email: <%= contact.email %></li>
-			<li> Contact Phone: <%= contact.phone %></li>
-			<li> ------------------------------------ </li>
-			<% end %>
-		</ul>
-		<% end %>
-	</body>
-</html>
+<h1> You are a in our list of favorite contacts! </h1>
+<%= link_to "Home", root_path %><br>
+<% @contacts.each do |contact| %>
+<ul>
+	<% if contact.state %>
+	<li> Contact Number: <%= contact.id %></li>
+	<li> Contact Name: <%= contact.name %></li>
+	<li> Contact Address: <%= contact.address %></li>
+	<li> Contact Email: <%= contact.email %></li>
+	<li> Contact Phone: <%= contact.phone %></li>
+	<li> :) </li>
+	<% end %>
+</ul>
+<% end %>
+	
