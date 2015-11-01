@@ -11,4 +11,8 @@ class Contact < ActiveRecord::Base
   	Contact.find(id).update(state: true)
   end
 
+  def self.unfavor_contact(id)
+  	Contact.find(id).update(state: false)
+  end
+
 end

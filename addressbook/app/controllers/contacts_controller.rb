@@ -25,6 +25,10 @@ class ContactsController < ApplicationController
     redirect_to root_path
   end
 
+  def unfavor_contact
+    Contact.unfavor_contact(params[:id])
+    redirect_to root_path
+  end
 
 
   def find_contacts

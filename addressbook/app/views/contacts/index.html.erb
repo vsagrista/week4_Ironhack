@@ -20,7 +20,7 @@
 		<li> Contact Phone: <%= contact.phone %></li>
 		<% if contact.state %> 
 			<li>FAVORITE :)</li>
-			<form action="/contacts/unfavor " method="post" >
+			<form action="/contacts/unfavor_contact " method="post" >
 			<input type="hidden" name="id" value=<%= contact.id %>>
 			<button type="submit">Unfavor</button>
 		</form>
