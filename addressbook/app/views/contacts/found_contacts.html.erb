@@ -2,6 +2,7 @@
 <% @contacts.each do |contact| %>
 	<ul>
 		<li><%= contact.name %></li>
+		<%= link_to "View Contact", contact_path(contact) %>
 	</ul>
 <%end%>
 <%= link_to "Home", root_path %>

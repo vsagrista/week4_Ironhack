@@ -1,13 +1,20 @@
-<html>
-	<head>
-		<title>Current User</title>
-	</head>
-	<body>
-		<h1>Current User is: <%= @contact.name %></h1>
-		<%= form_for @contact do |f| %>
-		<%= f.submit "Favorite!" %>
+<h1>Contact Page</h1>
+	<ul>
+		<li> Contact Name: <%= @contact.name %></li>
+		<li> Contact Address: <%= @contact.address %></li>
+		<li> Contact Email: <%= @contact.email %></li>
+		<li> Contact Phone: <%= @contact.phone %></li>
+		<% if @contact.state %> 
+			<li>FAVORITE :)</li>
+			<form action="/contacts/unfavor_contact " method="post" >
+			<input type="hidden" name="id" value=<%= @contact.id %>>
+			<button type="submit">Unfavor</button>
+		</form>
+		<% else %>
+			<form action="/contacts/make_favorite " method="post" >
+				<input type="hidden" name="id" value=<%=@contact.id %>>
+				<button type="submit">Favorite!</button>
+			</form>
 		<% end %>
-	</body>
-</html>
-
+	</ul>
 <%= link_to "Home", root_path %>
